@@ -39,10 +39,17 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
-
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/zroot";
+    fsType = "zfs";
+  };
+  fileSystems."boot" = {
+    device = "dev/disk/by-label/EFIBOOT";
+    fsType = "zfs";
+  };
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
+  
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
